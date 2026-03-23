@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animation Gallery</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* ── Card ── */
+      .card {
+        background: #111118;
+        border: 1px solid #1e1e2e;
+        border-radius: 16px;
+        overflow: hidden;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* ── Animation Canvas ── */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* ── Orbital Animation ── */
+      .orbital {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 2px solid #c084fc;
+        position: relative;
+        animation: spin 4s linear infinite;
+        transition: border-color 0.6s ease;
+      }
+      .orbital::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #7c3aed;
+        box-shadow: 0 0 12px #9333ea;
+        transition:
+          background 0.6s ease,
+          box-shadow 0.6s ease;
+      }
+      .orbital-inner {
+        position: absolute;
+        inset: 14px;
+        border-radius: 50%;
+        border: 1px solid #c084fc;
+        animation: spin 2.5s linear infinite reverse;
+        transition: border-color 0.6s ease;
+      }
+      .orbital-inner::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #7c3aed;
+        transition: background 0.6s ease;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── Code Block ── */
+      .card-meta {
+        padding: 12px 16px;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+        overflow-x: auto;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.6;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Orbital Ring</h2>
+      <div class="canvas">
+        <div class="orbital">
+          <div class="orbital-inner"></div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <code>
+          .orbital { width: 90px; height: 90px; border-radius: 50%; border: 2px
+          solid #f97316; position: relative; animation: spin 4s linear infinite;
+          } .orbital::before { content: ""; position: absolute; top: -5px; left:
+          50%; transform: translateX(-50%); width: 10px; height: 10px;
+          border-radius: 50%; background: rebeccapurple; } .orbital-inner {
+          position: absolute; inset: 15px; border-radius: 50%; border: 1px solid
+          #22c55e; animation: spin 2.5s linear infinite reverse; }
+          .orbital-inner::before { content: ""; position: absolute; top: -4px;
+          left: 50%; transform: translateX(-50%); width: 8px; height: 8px;
+          border-radius: 50%; background: red; } @keyframes spin { to {
+          transform: rotate(360deg); } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

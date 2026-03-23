@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(201, 189, 222, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Blob Animation */
+      .blob {
+        width: 100px;
+        height: 100px;
+        background: #d580ff;
+        opacity: 0.85;
+        animation:
+          blob-morph 4s ease-in-out infinite,
+          blob-pulse 2s ease-in-out infinite alternate;
+        transition: background 0.6s ease;
+      }
+
+      /* Morphing Keyframes */
+      @keyframes blob-morph {
+        0%,
+        100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        25% {
+          border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+        50% {
+          border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+        }
+        75% {
+          border-radius: 70% 30% 50% 50% / 40% 70% 30% 60%;
+        }
+      }
+
+      /* Pulse Keyframes */
+      @keyframes blob-pulse {
+        from {
+          transform: scale(0.92);
+        }
+        to {
+          transform: scale(1.06);
+        }
+      }
+
+      /* Code Section */
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2. Morphing Blob -->
+    <div class="card">
+      <h2>Morphing Blob</h2>
+      <div class="canvas">
+        <div class="blob"></div>
+      </div>
+      <div class="card-meta">
+        <code>
+          .blob { width: 100px; height: 100px; background: #c8ff00; animation:
+          blob-morph 4s ease-in-out infinite, blob-pulse 2s ease-in-out infinite
+          alternate; opacity: 0.85; transition: background 0.6s ease; }
+          @keyframes blob-morph { 0%, 100% { border-radius: 60% 40% 30% 70% /
+          60% 30% 70% 40%; } 25% { border-radius: 30% 60% 70% 40% / 50% 60% 30%
+          60%; } 50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%; } 75% {
+          border-radius: 70% 30% 50% 50% / 40% 70% 30% 60%; } } @keyframes
+          blob-pulse { from { transform: scale(0.92); } to { transform:
+          scale(1.06); } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

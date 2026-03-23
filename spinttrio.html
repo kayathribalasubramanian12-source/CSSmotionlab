@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+        
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+      .spinner-trio {
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+
+      .ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        transition: border-color 0.6s ease;
+      }
+
+      /* Outer ring */
+      .ring-1 {
+        border-top-color: #8b5cf6;
+        animation: spin 1s linear infinite;
+      }
+
+      /* Middle ring */
+      .ring-2 {
+        inset: 10px;
+        border-right-color: #7c3aed;
+        animation: spin 1.6s linear infinite reverse;
+      }
+
+      /* Inner ring */
+      .ring-3 {
+        inset: 20px;
+        border-bottom-color: #a78bfa;
+        animation: spin 2.3s linear infinite;
+      }
+
+      /* Rotation */
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 9. Spinner Trio -->
+    <div class="card">
+      <h2>Spinner Trio</h3>
+      <div class="canvas">
+        <div class="spinner-trio">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <code
+          >.card { background: #111118; /* Dark surface */ border: 1px solid
+          #1e1e2e; /* subtle border */ border-radius: 16px; overflow: hidden;
+          display: flex; flex-direction: column; width: 280px; margin: 20px;
+          box-shadow: 0 0 20px rgba(124, 58, 237, 0.1); transition: border-color
+          0.3s, box-shadow 0.3s; } .card:hover { border-color: #2e2e45;
+          box-shadow: 0 0 40px rgba(124, 58, 237, 0.2), 0 20px 60px rgba(0, 0,
+          0, 0.5); } /* Animation Canvas */ .canvas { display: flex;
+          align-items: center; justify-content: center; height: 220px;
+          background: radial-gradient( circle at center, rgba(200, 255, 0, 0.1)
+          0%, transparent 80% ); border-bottom: 1px solid #1e1e2e; position:
+          relative; overflow: hidden; } h2 { text-align: center; } code {
+          display: block; padding: 16px 18px 20px; font-family: "DM Mono",
+          monospace; font-size: 0.72rem; line-height: 1.7; color: #a8a8c8;
+          white-space: pre-wrap; word-break: break-word; overflow-x: auto;
+          max-height: 320px; overflow-y: auto; background: #111118; border-top:
+          1px solid #1e1e2e; } .spinner-trio { position: relative; width: 80px;
+          height: 80px; } .ring { position: absolute; inset: 0; border-radius:
+          50%; border: 3px solid transparent; transition: border-color 0.6s
+          ease; } /* Outer ring */ .ring-1 { border-top-color: #c8ff00;
+          animation: spin 1s linear infinite; } /* Middle ring */ .ring-2 {
+          inset: 10px; border-right-color: #00d4ff; animation: spin 1.6s linear
+          infinite reverse; } /* Inner ring */ .ring-3 { inset: 20px;
+          border-bottom-color: #ff3c6e; animation: spin 2.3s linear infinite; }
+          /* Rotation */ @keyframes spin { to { transform: rotate(360deg); }
+          }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

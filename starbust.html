@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+        background: radial-gradient(
+          circle at center,
+          rgba(200, 255, 0, 0.1) 0%,
+          transparent 80%
+        );
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+      .starburst {
+        position: relative;
+        width: 80px;
+        height: 80px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Expanding rings */
+      .star-ring {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+
+        border-radius: 50%;
+        border: 1px solid #a78bfa;
+
+        animation: star-expand 2s ease-out infinite;
+
+        opacity: 0;
+
+        transition: border-color 0.6s ease;
+      }
+
+      /* Delay each ring */
+      .star-ring:nth-child(2) {
+        animation-delay: 0.7s;
+      }
+
+      .star-ring:nth-child(3) {
+        animation-delay: 1.4s;
+      }
+
+      /* Center core */
+      .star-core {
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+        background: #a78bfa;
+
+        box-shadow: 0 0 16px #8b5cf6(218, 124, 217, 0.3);
+
+        z-index: 1;
+
+        transition:
+          background 0.6s ease,
+          box-shadow 0.6s ease;
+      }
+
+      /* Animation */
+      @keyframes star-expand {
+        0% {
+          transform: scale(0.2);
+          opacity: 0.8;
+        }
+
+        100% {
+          transform: scale(2.2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Starburst Pulse</h2>
+      <div class="canvas">
+        <div class="starburst">
+          <div class="star-ring"></div>
+          <div class="star-ring"></div>
+          <div class="star-ring"></div>
+          <div class="star-core"></div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <code
+          >.starburst { position: relative; width: 80px; height: 80px; display:
+          flex; align-items: center; justify-content: center; } /* Expanding
+          rings */ .star-ring { position: absolute; width: 80px; height: 80px;
+          border-radius: 50%; border: 1px solid #c8ff00; animation: star-expand
+          2s ease-out infinite; opacity: 0; transition: border-color 0.6s ease;
+          } /* Delay each ring */ .star-ring:nth-child(2) { animation-delay:
+          0.7s; } .star-ring:nth-child(3) { animation-delay: 1.4s; } /* Center
+          core */ .star-core { width: 20px; height: 20px; border-radius: 50%;
+          background: #c8ff00; box-shadow: 0 0 16px rgba(200, 255, 0, 0.3);
+          z-index: 1; transition: background 0.6s ease, box-shadow 0.6s ease; }
+          /* Animation */ @keyframes star-expand { 0% { transform: scale(0.2);
+          opacity: 0.8; } 100% { transform: scale(2.2); opacity: 0; } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

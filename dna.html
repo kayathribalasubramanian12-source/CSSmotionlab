@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+      .dna {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+      }
+
+      .dna-row {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        position: relative;
+      }
+
+      /* dots */
+      .dna-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        transition: background 0.6s ease;
+      }
+
+      .dna-dot.a {
+        background: #7c3aed; /* accent */
+      }
+
+      .dna-dot.b {
+        background: #a78bfa; /* accent2 */
+      }
+
+      .dna-row:nth-child(1) {
+        animation: dna-drift 3s ease-in-out infinite 0s alternate;
+      }
+      .dna-row:nth-child(2) {
+        animation: dna-drift 3s ease-in-out infinite 0.3s alternate;
+      }
+      .dna-row:nth-child(3) {
+        animation: dna-drift 3s ease-in-out infinite 0.6s alternate;
+      }
+      .dna-row:nth-child(4) {
+        animation: dna-drift 3s ease-in-out infinite 0.9s alternate;
+      }
+      .dna-row:nth-child(5) {
+        animation: dna-drift 3s ease-in-out infinite 1.2s alternate;
+      }
+      .dna-row:nth-child(6) {
+        animation: dna-drift 3s ease-in-out infinite 1.5s alternate;
+      }
+      .dna-row:nth-child(7) {
+        animation: dna-drift 3s ease-in-out infinite 1.8s alternate;
+      }
+      .dna-row:nth-child(8) {
+        animation: dna-drift 3s ease-in-out infinite 2.1s alternate;
+      }
+      .dna-row:nth-child(9) {
+        animation: dna-drift 3s ease-in-out infinite 2.4s alternate;
+      }
+      .dna-row:nth-child(10) {
+        animation: dna-drift 3s ease-in-out infinite 2.7s alternate;
+      }
+
+      /* keyframes */
+      @keyframes dna-drift {
+        from {
+          transform: translateX(-10px) scaleX(0.7);
+        }
+        to {
+          transform: translateX(10px) scaleX(1.3);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>DNA Helix</h2>
+      <div class="canvas">
+        <div class="dna">
+          <div class="dna-row">
+            <div class="dna-dot a"></div>
+            <div class="dna-dot b"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot b"></div>
+            <div class="dna-dot a"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot a"></div>
+            <div class="dna-dot b"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot b"></div>
+            <div class="dna-dot a"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot a"></div>
+            <div class="dna-dot b"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot b"></div>
+            <div class="dna-dot a"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot a"></div>
+            <div class="dna-dot b"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot b"></div>
+            <div class="dna-dot a"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot a"></div>
+            <div class="dna-dot b"></div>
+          </div>
+          <div class="dna-row">
+            <div class="dna-dot b"></div>
+            <div class="dna-dot a"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <code
+          >.dna { display: flex; flex-direction: column; gap: 5px; align-items:
+          center; } .dna-row { display: flex; gap: 40px; align-items: center;
+          position: relative; } /* dots */ .dna-dot { width: 10px; height: 10px;
+          border-radius: 50%; transition: background 0.6s ease; } .dna-dot.a {
+          background: #c8ff00; /* accent */ } .dna-dot.b { background: #00d4ff;
+          /* accent2 */ } .dna-row:nth-child(1) { animation: dna-drift 3s
+          ease-in-out infinite 0s alternate; } .dna-row:nth-child(2) {
+          animation: dna-drift 3s ease-in-out infinite 0.3s alternate; }
+          .dna-row:nth-child(3) { animation: dna-drift 3s ease-in-out infinite
+          0.6s alternate; } .dna-row:nth-child(4) { animation: dna-drift 3s
+          ease-in-out infinite 0.9s alternate; } .dna-row:nth-child(5) {
+          animation: dna-drift 3s ease-in-out infinite 1.2s alternate; }
+          .dna-row:nth-child(6) { animation: dna-drift 3s ease-in-out infinite
+          1.5s alternate; } .dna-row:nth-child(7) { animation: dna-drift 3s
+          ease-in-out infinite 1.8s alternate; } .dna-row:nth-child(8) {
+          animation: dna-drift 3s ease-in-out infinite 2.1s alternate; }
+          .dna-row:nth-child(9) { animation: dna-drift 3s ease-in-out infinite
+          2.4s alternate; } .dna-row:nth-child(10) { animation: dna-drift 3s
+          ease-in-out infinite 2.7s alternate; } /* keyframes */ @keyframes
+          dna-drift { from { transform: translateX(-10px) scaleX(0.7); } to {
+          transform: translateX(10px) scaleX(1.3); } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+        background: radial-gradient(
+          circle at center,
+          rgba(200, 255, 0, 0.1) 0%,
+          transparent 80%
+        );
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+      .bars {
+        display: flex;
+        gap: 6px;
+        align-items: flex-end;
+        height: 70px;
+      }
+
+      /* common bar */
+      .bar {
+        width: 10px;
+        border-radius: 3px 3px 0 0;
+
+        animation: bar-eq 1.2s ease-in-out infinite alternate;
+
+        transition: background 0.6s ease;
+      }
+
+      /* individual bars */
+      .bar:nth-child(1) {
+        background: #7c3aed;
+        height: 30%;
+        animation-delay: 0s;
+      }
+
+      .bar:nth-child(2) {
+        background: #7c3aed;
+        height: 70%;
+        animation-delay: 0.18s;
+      }
+
+      .bar:nth-child(3) {
+        background: #7c3aed;
+        height: 50%;
+        animation-delay: 0.36s;
+      }
+
+      .bar:nth-child(4) {
+        background: #a78bfa;
+        height: 90%;
+        animation-delay: 0.54s;
+      }
+
+      .bar:nth-child(5) {
+        background: #a78bfa;
+        height: 40%;
+        animation-delay: 0.72s;
+      }
+
+      .bar:nth-child(6) {
+        background: #a78bfa;
+        height: 80%;
+        animation-delay: 0.9s;
+      }
+
+      .bar:nth-child(7) {
+        background: #8b5cf6;
+        height: 55%;
+        animation-delay: 1.08s;
+      }
+
+      .bar:nth-child(8) {
+        background: #8b5cf6;
+        height: 35%;
+        animation-delay: 1.26s;
+      }
+
+      /* animation */
+      @keyframes bar-eq {
+        from {
+          transform: scaleY(0.2);
+        }
+        to {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Equaliser Bars</h2>
+      <div class="canvas">
+        <div class="bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <code
+          >.bars { display: flex; gap: 6px; align-items: flex-end; height: 70px;
+          } /* common bar */ .bar { width: 10px; border-radius: 3px 3px 0 0;
+          animation: bar-eq 1.2s ease-in-out infinite alternate; transition:
+          background 0.6s ease; } /* individual bars */ .bar:nth-child(1) {
+          background: #c8ff00; height: 30%; animation-delay: 0s; }
+          .bar:nth-child(2) { background: #c8ff00; height: 70%; animation-delay:
+          0.18s; } .bar:nth-child(3) { background: #00d4ff; height: 50%;
+          animation-delay: 0.36s; } .bar:nth-child(4) { background: #00d4ff;
+          height: 90%; animation-delay: 0.54s; } .bar:nth-child(5) { background:
+          #ff3c6e; height: 40%; animation-delay: 0.72s; } .bar:nth-child(6) {
+          background: #ff3c6e; height: 80%; animation-delay: 0.9s; }
+          .bar:nth-child(7) { background: #c8ff00; height: 55%; animation-delay:
+          1.08s; } .bar:nth-child(8) { background: #c8ff00; height: 35%;
+          animation-delay: 1.26s; } /* animation */ @keyframes bar-eq { from {
+          transform: scaleY(0.2); } to { transform: scaleY(1); } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>

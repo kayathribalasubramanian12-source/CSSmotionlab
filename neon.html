@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #0a0a0f; /* Dark background for contrast */
+        font-family: "DM Mono", monospace;
+        color: #e2e2f0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      /* Card Container */
+      .card {
+        background: #111118; /* Dark surface */
+        border: 1px solid #1e1e2e; /* subtle border */
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        margin: 20px;
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        border-color: #2e2e45;
+        box-shadow:
+          0 0 40px rgba(124, 58, 237, 0.2),
+          0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Animation Canvas */
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+
+        border-bottom: 1px solid #1e1e2e;
+        position: relative;
+        overflow: hidden;
+      }
+      .neon {
+        font-family: serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        font-style: italic;
+
+        color: #8a2be2;
+
+        /* glow effect */
+        text-shadow:
+          0 0 4px #bb00ff,
+          0 0 8px #bb00ff,
+          0 0 12px #8a2be2,
+          0 0 16px #d580ff,
+          0 0 24px rgba(187, 0, 255, 0.5);
+
+        /* flicker animation */
+        animation: neon-flicker 3s steps(1) infinite;
+
+        transition: color 0.6s ease;
+        user-select: none;
+        letter-spacing: -0.02em;
+      }
+      @keyframes neon-flicker {
+        0%,
+        19%,
+        21%,
+        23%,
+        25%,
+        54%,
+        56%,
+        100% {
+          text-shadow:
+            0 0 8px #8a2be2,
+            0 0 20px #8a2be2,
+            0 0 40px #d580ff;
+          opacity: 1;
+        }
+
+        20%,
+        22%,
+        24%,
+        55% {
+          text-shadow: none;
+          opacity: 0.4;
+        }
+      }
+      h2 {
+        text-align: center;
+      }
+
+      code {
+        display: block;
+        padding: 16px 18px 20px;
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        line-height: 1.7;
+        color: #a8a8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        overflow-x: auto;
+        max-height: 320px;
+        overflow-y: auto;
+        background: #111118;
+        border-top: 1px solid #1e1e2e;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 4. Neon Sign -->
+    <div class="card">
+      <h2>Neon Flicker</h2>
+      <div class="canvas">
+        <div class="neon">open</div>
+      </div>
+      <div class="card-meta">
+        <code
+          >.neon { font-family: serif; font-size: 2.8rem; font-weight: 700;
+          font-style: italic; color: #c8ff00; /* glow effect */ text-shadow: 0 0
+          8px #c8ff00, 0 0 20px #c8ff00, 0 0 40px #c8ff00; /* flicker animation
+          */ animation: neon-flicker 3s steps(1) infinite; transition: color
+          0.6s ease; user-select: none; letter-spacing: -0.02em; } @keyframes
+          neon-flicker { 0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0
+          0 8px #c8ff00, 0 0 20px #c8ff00, 0 0 40px #c8ff00; opacity: 1; } 20%,
+          22%, 24%, 55% { text-shadow: none; opacity: 0.4; } }</code
+        >
+      </div>
+    </div>
+  </body>
+</html>
